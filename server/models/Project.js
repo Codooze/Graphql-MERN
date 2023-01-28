@@ -21,7 +21,7 @@ const projectSchema = new mongoose.Schema({
   },
   client: {
     type: mongoose.Schema.ObjectId,
-    ref: "Client",
+    ref: "clients",
     required: true,
   },
 });

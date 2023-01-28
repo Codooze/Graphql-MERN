@@ -85,7 +85,7 @@ const Mutation = new GraphQLObjectType({
           name: args.name,
           description: args.description,
           status: args.status,
-          clientId: args.clientId,
+          clientId: args.client,
         });
         return project.save();
       },
@@ -104,6 +104,55 @@ const Mutation = new GraphQLObjectType({
           phone: args.phone,
         });
         return client.save();
+      },
+    },
+    deleteClient: {
+      type: ClientType,
+      args: {
+        id: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        return Client.findByIdAndDelete(args.id);
+      },
+    },
+    deleteProject: {
+      type: ProjectType,
+      args: {
+        id: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        return Project.findByIdAndDelete(args.id);
+      },
+    },
+    deleteProject: {
+      type: ProjectType,
+      args: {
+        id: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        return Project.findByIdAndDelete(args.id);
+      },
+    },
+    updateProject: {
+      type: ProjectType,
+      args: {
+        id: { type: GraphQLID },
+        name: { type: GraphQLString },
+        description: { type: GraphQLString },
+        status: { type: GraphQLString },
+        clientId: { type: GraphQLID },
+      },
+      resolve(parent, args) {
+        return Project.findByIdAndUpdate(
+          args.id,
+          {
+            name: args.name,
+            description: args.description,
+            status: args.status,
+            clientId: args.client,
+          },
+          { new: true }
+        );
       },
     },
   },
