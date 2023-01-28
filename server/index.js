@@ -2,12 +2,17 @@ import express from "express";
 import dotenv from "dotenv";
 import { graphqlHTTP } from "express-graphql";
 import schema from "./schema/schema.js";
+import colors from "colors";
+import connectDB from "./config/db.js";
 
 dotenv.config();
 
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+//connect to database
+connectDB();
 
 app.use(
   "/graphql",
