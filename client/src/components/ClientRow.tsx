@@ -1,5 +1,4 @@
 import { FaTrash } from "react-icons/fa";
-import { useMutation } from "@apollo/client";
 
 interface ClientRowProps {
   client: {
