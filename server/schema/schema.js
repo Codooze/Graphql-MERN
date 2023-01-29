@@ -31,7 +31,8 @@ const ProjectType = new GraphQLObjectType({
     client: {
       type: ClientType,
       resolve(parent, args) {
-        return Client.find((client) => client.id === parent.clientId);
+        return Client.findById(parent.clientId);
+        // Client.find((client) => client.id === parent.clientId);
       },
     },
   }),
@@ -85,7 +86,7 @@ const Mutation = new GraphQLObjectType({
           name: args.name,
           description: args.description,
           status: args.status,
-          clientId: args.client,
+          clientId: args.clientId,
         });
         return project.save();
       },
@@ -149,7 +150,7 @@ const Mutation = new GraphQLObjectType({
             name: args.name,
             description: args.description,
             status: args.status,
-            clientId: args.client,
+            clientId: args.clientId,
           },
           { new: true }
         );

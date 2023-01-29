@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const cache = new InMemoryCache({
   //using the update funtion of the useMutation will make the cache update automatically, and dont make a full request to the server

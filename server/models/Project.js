@@ -19,7 +19,7 @@ const projectSchema = new mongoose.Schema({
     required: [true, "Please add a status"],
     enum: ["TO_DO", "IN_PROGRESS", "DONE"],
   },
-  client: {
+  clientId: {
     type: mongoose.Schema.ObjectId,
     ref: "clients",
     required: true,
