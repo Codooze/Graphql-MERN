@@ -5,6 +5,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { Clients } from "./components/Clients";
 import Projects from "./components/Projects";
 import AddClientModal from "./components/AddClientModal";
+import AddProjectModal from "./components/AddProjectModal";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <div className="d-flex gap-3 mb-4">
         <AddClientModal />
+        <AddProjectModal />
       </div>
       <Projects />
       <hr />
