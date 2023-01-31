@@ -2,7 +2,6 @@ import { FaTrash } from "react-icons/fa";
 import { useMutation } from "@apollo/client";
 import { DELETE_CLIENT } from "../mutations/clientMutations";
 import { GET_CLIENTS } from "../queries/clientQ";
-import { InMemoryCache, defaultDataIdFromObject } from "@apollo/client";
 
 interface ClientRowProps {
   client: {

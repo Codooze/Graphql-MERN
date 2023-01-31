@@ -29,7 +29,7 @@ export default function AddProjectModal() {
     name: "",
     description: "",
     clientId: "",
-    status: "new",
+    status: "TO_DO",
   });
 
   const [addProject] = useMutation(ADD_PROJECT, {
@@ -50,6 +50,7 @@ export default function AddProjectModal() {
 
   const onChange = (e: any) => {
     setProjectForm({ ...projectForm, [e.target.name]: e.target.value });
+    if (e.target.name === "status") console.log(e.target.value);
   };
 
   const onSubmit = (e: any) => {
@@ -68,7 +69,7 @@ export default function AddProjectModal() {
       name: "",
       description: "",
       clientId: "",
-      status: "new",
+      status: "",
     });
   };
 
