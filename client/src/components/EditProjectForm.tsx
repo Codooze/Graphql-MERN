@@ -18,6 +18,10 @@ export default function EditProjectForm({ project }: EditProjectFormProps) {
     description: project.description,
     status: project.status,
   });
+  const [toggleEditProject, setToggleEditProject] = useState(false);
+  const toggleEdit = () => {
+    setToggleEditProject(!toggleEditProject);
+  };
 
   const [updateProject] = useMutation(UPDATE_PROJECT, {
     variables: {
@@ -43,57 +47,72 @@ export default function EditProjectForm({ project }: EditProjectFormProps) {
   };
 
   return (
-    <form
-      className="mt-3"
-      onSubmit={(e) => {
-        e.preventDefault();
-        updateProject();
-      }}
-    >
-      <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          name="name"
-          value={projectForm.name}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="description" className="form-label">
-          Description
-        </label>
-        <textarea
-          className="form-control"
-          id="description"
-          name="description"
-          value={projectForm.description}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="status" className="form-label">
-          Status
-        </label>
-        <select
-          className="form-select"
-          id="status"
-          name="status"
-          value={projectForm.status}
-          onChange={handleChange}
+    <>
+      {!toggleEditProject ? (
+        <div>
+          <button
+            onClick={toggleEdit}
+            type="submit"
+            className="btn btn-primary btn-sm"
+          >
+            Update Project
+          </button>
+        </div>
+      ) : (
+        <form
+          className="mt-3"
+          onSubmit={(e) => {
+            e.preventDefault();
+            updateProject();
+            setToggleEditProject(false);
+          }}
         >
-          <option value="TO_DO">To Do</option>
-          <option value="IN_PROGRESS">In Progress</option>
-          <option value="DONE">Completed</option>
-        </select>
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Update Project
-      </button>
-    </form>
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">
+              Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              value={projectForm.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="description" className="form-label">
+              Description
+            </label>
+            <textarea
+              className="form-control"
+              id="description"
+              name="description"
+              value={projectForm.description}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="status" className="form-label">
+              Status
+            </label>
+            <select
+              className="form-select"
+              id="status"
+              name="status"
+              value={projectForm.status}
+              onChange={handleChange}
+            >
+              <option value="TO_DO">To Do</option>
+              <option value="IN_PROGRESS">In Progress</option>
+              <option value="DONE">Completed</option>
+            </select>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Send Changes
+          </button>
+        </form>
+      )}
+    </>
   );
 }

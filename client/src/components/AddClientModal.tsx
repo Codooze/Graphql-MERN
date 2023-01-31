@@ -88,6 +88,7 @@ export default function AddClientModal() {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="mb-3">
@@ -98,16 +99,18 @@ export default function AddClientModal() {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
+                    required
                   />
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Phone</label>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     name="phone"
-                    value={form.phone}
+                    value={`${form.phone}`}
                     onChange={handleChange}
+                    required
                   />
                 </div>
 
