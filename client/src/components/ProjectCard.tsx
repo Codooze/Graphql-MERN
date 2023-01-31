@@ -6,8 +6,17 @@ interface Project {
   // client: { id: string; name: string; email: string; phone: string };
 }
 
+enum projectStatus {
+  TO_DO = "To do",
+  IN_PROGRESS = "In progress",
+  DONE = "Done",
+}
+
 export default function ProjectCard({ project }: { project: Project }) {
   //console.log(project);
+
+  const statusValue =
+    projectStatus[project.status as keyof typeof projectStatus];
 
   return (
     <div className="col-md-6">
@@ -21,7 +30,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             </a>
           </div>
           <p className="small">
-            Status: <strong>{project.status}</strong>
+            Status: <strong>{statusValue}</strong>
           </p>
         </div>
       </div>
