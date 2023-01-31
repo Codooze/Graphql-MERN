@@ -7,7 +7,7 @@ interface Project {
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
-  console.log(project);
+  //console.log(project);
 
   return (
     <div className="col-md-6">
