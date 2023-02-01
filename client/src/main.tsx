@@ -6,6 +6,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Project } from "./pages/Project";
 
+const environment = {
+  production: "https://graphql-mern-6ao55use0-codooze.vercel.app/",
+  development: "http://localhost:3000/graphql",
+};
+
 const cache = new InMemoryCache({
   //using the update funtion of the useMutation will make the cache update automatically, and dont make a full request to the server
   typePolicies: {
@@ -28,7 +33,7 @@ const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql",
+  uri: environment.development,
   cache,
 });
 
