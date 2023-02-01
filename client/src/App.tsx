@@ -5,10 +5,8 @@ import { Clients } from "./components/Clients";
 import Projects from "./components/Projects";
 import AddClientModal from "./components/AddClientModal";
 import AddProjectModal from "./components/AddProjectModal";
-
+import { StoreProvider } from "./Store.context";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Header />
@@ -16,9 +14,11 @@ function App() {
         <AddClientModal />
         <AddProjectModal />
       </div>
-      <Projects />
-      <hr />
-      <Clients />
+      <StoreProvider>
+        <Projects />
+        <hr />
+        <Clients />
+      </StoreProvider>
     </>
   );
 }

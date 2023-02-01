@@ -1,9 +1,20 @@
 import { useQuery } from "@apollo/client";
 import { GET_PROJECTS } from "../queries/projectQueries";
 import ProjectCard from "./ProjectCard";
+import { useContext, useEffect } from "react";
+import { Store } from "../Store.context";
 
 export default function Projects() {
-  const { loading, error, data } = useQuery(GET_PROJECTS);
+  const { loading, error, data, refetch } = useQuery(GET_PROJECTS);
+
+  const reRun = useContext(Store);
+  console.log(reRun);
+
+  useEffect(() => {
+    if (reRun) {
+      refetch();
+    }
+  }, [reRun, refetch]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;

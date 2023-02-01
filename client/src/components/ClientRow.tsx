@@ -2,6 +2,8 @@ import { FaTrash } from "react-icons/fa";
 import { useMutation } from "@apollo/client";
 import { DELETE_CLIENT } from "../mutations/clientMutations";
 import { GET_CLIENTS } from "../queries/clientQ";
+import { Store } from "../Store.context";
+import { useContext } from "react";
 
 interface ClientRowProps {
   client: {
@@ -15,6 +17,8 @@ interface ClientRowProps {
 export default function ClientRow({
   client: { id, name, email, phone },
 }: ClientRowProps) {
+  const { state, dispatch } = useContext(Store);
+
   const [deleteClient] = useMutation(DELETE_CLIENT, {
     variables: { id },
     update(cache) {
@@ -27,6 +31,12 @@ export default function ClientRow({
       });
     },
   });
+  console.log(state);
+
+  const updateProjectView = () => {
+    console.log("updateProjectView");
+    dispatch({ type: "update", payload: !state });
+  };
 
   return (
     <tr>
@@ -36,7 +46,10 @@ export default function ClientRow({
       <td>
         <button
           className="btn btn-danger btn-sm"
-          onClick={() => deleteClient()}
+          onClick={() => {
+            deleteClient();
+            updateProjectView();
+          }}
         >
           <FaTrash />
         </button>

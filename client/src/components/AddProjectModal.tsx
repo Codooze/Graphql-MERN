@@ -69,7 +69,7 @@ export default function AddProjectModal() {
       name: "",
       description: "",
       clientId: "",
-      status: "",
+      status: "TO_DO",
     });
   };
 
@@ -140,7 +140,9 @@ export default function AddProjectModal() {
                         value={projectForm.status}
                         onChange={onChange}
                       >
-                        <option value={ProjectStatus.TO_DO}>Not Started</option>
+                        <option selected value={ProjectStatus.TO_DO}>
+                          Not Started
+                        </option>
                         <option value={ProjectStatus.IN_PROGRESS}>
                           In Progress
                         </option>
