@@ -140,9 +140,7 @@ export default function AddProjectModal() {
                         value={ProjectStatus.TO_DO}
                         onChange={onChange}
                       >
-                        <option selected value={ProjectStatus.TO_DO}>
-                          Not Started
-                        </option>
+                        <option value={ProjectStatus.TO_DO}>Not Started</option>
                         <option value={ProjectStatus.IN_PROGRESS}>
                           In Progress
                         </option>
