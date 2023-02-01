@@ -1,21 +1,11 @@
-import React from "react";
 import ClientRow from "./ClientRow";
 import { useQuery, gql } from "@apollo/client";
-
-const GET_CLIENTS = gql`
-  query getClients {
-    clients {
-      id
-      name
-      email
-      phone
-    }
-  }
-`;
+import { GET_CLIENTS } from "../queries/clientQ";
 
 export const Clients = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS);
-  console.log(data);
+  ////console.log(data);
+  ////console.log(loading);
 
   return (
     <>
@@ -28,11 +18,23 @@ export const Clients = () => {
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          {data.clients.map((client: any) => (
-            <ClientRow key={client.id} client={client} />
-          ))}
-        </tbody>
+        {loading ? (
+          <tbody>
+            <tr>
+              <td colSpan={4} className="text-center">
+                <div className="spinner-border" role="status">
+                  <span className="sr-only"></span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        ) : (
+          <tbody>
+            {data.clients.map((client: any) => (
+              <ClientRow key={client.id} client={client} />
+            ))}
+          </tbody>
+        )}
       </table>
     </>
   );
