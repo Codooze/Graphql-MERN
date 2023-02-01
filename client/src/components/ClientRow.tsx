@@ -31,10 +31,10 @@ export default function ClientRow({
       });
     },
   });
-  console.log(state);
+  //console.log(state);
 
   const updateProjectView = () => {
-    console.log("updateProjectView");
+    //console.log("updateProjectView");
     dispatch({ type: "update", payload: !state });
   };
 

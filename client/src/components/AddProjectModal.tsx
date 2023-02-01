@@ -50,7 +50,7 @@ export default function AddProjectModal() {
 
   const onChange = (e: any) => {
     setProjectForm({ ...projectForm, [e.target.name]: e.target.value });
-    if (e.target.name === "status") console.log(e.target.value);
+    // if (e.target.name === "status") //console.log(e.target.value);
   };
 
   const onSubmit = (e: any) => {
@@ -137,7 +137,7 @@ export default function AddProjectModal() {
                       <select
                         name="status"
                         className="form-select"
-                        value={projectForm.status}
+                        value={ProjectStatus.TO_DO}
                         onChange={onChange}
                       >
                         <option selected value={ProjectStatus.TO_DO}>

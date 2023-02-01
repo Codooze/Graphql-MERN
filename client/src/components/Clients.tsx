@@ -4,8 +4,8 @@ import { GET_CLIENTS } from "../queries/clientQ";
 
 export const Clients = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS);
-  //console.log(data);
-  //console.log(loading);
+  ////console.log(data);
+  ////console.log(loading);
 
   return (
     <>

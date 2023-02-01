@@ -8,7 +8,7 @@ export default function Projects() {
   const { loading, error, data, refetch } = useQuery(GET_PROJECTS);
 
   const reRun = useContext(Store);
-  console.log(reRun);
+  //console.log(reRun);
 
   useEffect(() => {
     if (reRun) {

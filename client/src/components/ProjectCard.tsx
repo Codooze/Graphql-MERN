@@ -13,7 +13,7 @@ enum projectStatus {
 }
 
 export default function ProjectCard({ project }: { project: Project }) {
-  //console.log(project);
+  ////console.log(project);
 
   const statusValue =
     projectStatus[project.status as keyof typeof projectStatus];
