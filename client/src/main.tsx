@@ -40,21 +40,18 @@ const client = new ApolloClient({
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
     errorElement: <NotFound />,
-  },
-  {
-    path: "/project/:id",
-    element: <Project />,
-    errorElement: <NotFound />,
-  },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
-  {
-    path: "/uwu",
-    element: <h1>Hello world</h1>,
+    children: [
+      { index: true, element: <App /> },
+      {
+        path: "/project/:id",
+        element: <Project />,
+      },
+      {
+        path: "/uwu",
+        element: <h1>Hello world</h1>,
+      },
+    ],
   },
 ]);
 
@@ -84,3 +81,5 @@ query{
   }
 }
 */
+
+//TODO create a clean / path and put the rest of the routes in it, like I did here https://github.com/Mehr-o-maah/EcommerceSite/blob/master/src/main.jsx
