@@ -2,7 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Link,
+  Outlet,
+  RouterProvider,
+} from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Project } from "./pages/Project";
 
@@ -37,19 +42,35 @@ const client = new ApolloClient({
   cache,
 });
 
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     errorElement: <NotFound />,
+//     element: <Outlet />,
+//     children: [
+//       { index: true, element: <App /> },
+//       { path: "uwu", element: <h1>Hello mom</h1> },
+//       {
+//         path: "/project/:id",
+//         element: <Project />,
+//       },
+//     ],
+//   },
+// ]);
+
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement: <NotFound />,
-    element: <Outlet />,
-    children: [
-      { index: true, element: <App /> },
-      { path: "uwu", element: <h1>Hello mom</h1> },
-      {
-        path: "/project/:id",
-        element: <Project />,
-      },
-    ],
+    element: (
+      <div>
+        <h1>Hello World</h1>
+        <Link to="about">About Us</Link>
+      </div>
+    ),
+  },
+  {
+    path: "about",
+    element: <div>About</div>,
   },
 ]);
 
