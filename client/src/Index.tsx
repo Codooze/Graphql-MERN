@@ -23,6 +23,7 @@ export default function Index() {
   let routes2: RouteObject[] = [
     {
       path: "/",
+      element: <Layout />,
       children: [
         { index: true, element: <Home /> },
         {
