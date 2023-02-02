@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Children } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import {
+  BrowserRouter,
   createBrowserRouter,
   Link,
   Outlet,
@@ -10,6 +11,7 @@ import {
 } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Project } from "./pages/Project";
+import Index from "./Index";
 
 const environment = {
   production: "https://backendqweq.onrender.com/graphql/",
@@ -42,30 +44,15 @@ const client = new ApolloClient({
   cache,
 });
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     errorElement: <NotFound />,
-//     element: <Outlet />,
-//     children: [
-//       { index: true, element: <App /> },
-//       { path: "uwu", element: <h1>Hello mom</h1> },
-//       {
-//         path: "/project/:id",
-//         element: <Project />,
-//       },
-//     ],
-//   },
-// ]);
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
   {
-    path: "project/:id",
+    path: "/project",
     element: <Project />,
+    children: [{ path: "/project/:id", element: <Project /> }],
   },
 ]);
 
@@ -73,6 +60,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <RouterProvider router={router} />
+      {/* <BrowserRouter>
+        <Index />
+      </BrowserRouter> */}
     </ApolloProvider>
   </React.StrictMode>
 );
