@@ -39,8 +39,9 @@ const client = new ApolloClient({
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/uwu",
     errorElement: <NotFound />,
+    element: <h1>Hello world</h1>,
     children: [
       { index: true, element: <App /> },
       {
