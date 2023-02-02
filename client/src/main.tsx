@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { Project } from "./pages/Project";
 
@@ -41,15 +41,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <NotFound />,
+    element: <Outlet />,
     children: [
       { index: true, element: <App /> },
       {
         path: "/project/:id",
         element: <Project />,
-      },
-      {
-        path: "/uwu",
-        element: <h1>Hello world</h1>,
       },
     ],
   },
@@ -82,4 +79,4 @@ query{
 }
 */
 
-//TODO create a clean / path and put the rest of the routes in it, like I did here https://github.com/Mehr-o-maah/EcommerceSite/blob/master/src/main.jsx
+//TODO add an outtlet for the main path since it seems it needs it to render the childrens https://github.com/Mehr-o-maah/EcommerceSite/blob/master/src/main.jsx
