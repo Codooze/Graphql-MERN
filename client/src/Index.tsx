@@ -28,11 +28,11 @@ export default function Index() {
       children: [
         { index: true, element: <Home /> },
         {
-          path: "/courses",
+          path: "/project",
           element: <Courses />,
           children: [
             { index: true, element: <CoursesIndex /> },
-            { path: "/courses/:id", element: <Project /> },
+            { path: "/project/:id", element: <Project /> },
           ],
         },
         { path: "*", element: <NoMatch /> },
@@ -128,7 +128,7 @@ function CoursesIndex() {
             <Link to="react-router">React Router</Link>
           </li>
           <li>
-            <Link to="project/63d6b9d65c94d40ff7dee1bb">Project</Link>
+            <Link to="63d6b9d65c94d40ff7dee1bb">Project</Link>
           </li>
         </ul>
       </nav>
