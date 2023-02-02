@@ -45,25 +45,24 @@ const client = new ApolloClient({
   cache,
 });
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />,
-//   },
-//   {
-//     path: "/project",
-//     element: <Project />,
-//     children: [{ path: "/project/:id", element: <Project /> }],
-//   },
-// ]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/project/:id",
+    element: <Project />,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      {/* <RouterProvider router={router} /> */}
-      <BrowserRouter>
+      <RouterProvider router={router} />
+      {/* <BrowserRouter>
         <Index />
-      </BrowserRouter>
+      </BrowserRouter> */}
     </ApolloProvider>
   </React.StrictMode>
 );
