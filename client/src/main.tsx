@@ -61,16 +61,11 @@ const client = new ApolloClient({
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
+    element: <App />,
   },
   {
-    path: "about",
-    element: <div>About</div>,
+    path: "project/:id",
+    element: <Project />,
   },
 ]);
 
