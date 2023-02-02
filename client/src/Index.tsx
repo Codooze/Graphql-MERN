@@ -21,8 +21,10 @@ export default function Index() {
     },
   ];
   let routes2: RouteObject[] = [
-    { path: "/courses/:id", element: <Course /> },
-    { path: "*", element: <NoMatch /> },
+    {
+      path: "/",
+      children: [{ path: "/courses/:id", element: <Course /> }],
+    },
   ];
   // The useRoutes() hook allows you to define your routes as JavaScript objects
   // instead of <Routes> and <Route> elements. This is really just a style
