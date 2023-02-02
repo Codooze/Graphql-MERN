@@ -44,6 +44,7 @@ const router = createBrowserRouter([
     element: <Outlet />,
     children: [
       { index: true, element: <App /> },
+      { path: "uwu", element: <h1>Hello mom</h1> },
       {
         path: "/project/:id",
         element: <Project />,
