@@ -8,7 +8,17 @@ import cors from "cors";
 
 dotenv.config();
 
-const port = process.env.PORT || 3000;
+if (process.env.NODE_ENV !== "production") {
+  console.log(`Loading environment variables from .env file`.yellow.bold);
+}
+
+if (!process.env.PORT) {
+  console.error(`Environment variable PORT not found`.red.bold);
+  process.exit(1);
+}
+
+const port = process.env.PORT;
+console.log(`Server running in ${process.env.NODE_ENV} mode`.yellow.bold);
 
 const app = express();
 
