@@ -7,7 +7,7 @@ import { NotFound } from "./pages/NotFound";
 import { Project } from "./pages/Project";
 
 const environment = {
-  production: "https://graphql-mern-6ao55use0-codooze.vercel.app/",
+  production: "https://backendqweq.onrender.com/graphql/",
   development: "http://localhost:3000/graphql",
 };
 
@@ -33,7 +33,7 @@ const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-  uri: environment.development,
+  uri: environment.production,
   cache,
 });
 
