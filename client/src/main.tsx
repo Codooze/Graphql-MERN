@@ -10,7 +10,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
-import { Project } from "./pages/Project";
+import Project from "./pages/Project";
 import Index from "./Index";
 import App2 from "./App2";
 

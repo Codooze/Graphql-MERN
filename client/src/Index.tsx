@@ -1,6 +1,6 @@
 import type { RouteObject } from "react-router-dom";
 import { Outlet, Link, useRoutes, useParams } from "react-router-dom";
-import { Project } from "./pages/Project";
+import Project from "./pages/Project";
 
 export default function Index() {
   let routes: RouteObject[] = [
