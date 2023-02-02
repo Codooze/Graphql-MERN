@@ -1,5 +1,6 @@
 import type { RouteObject } from "react-router-dom";
 import { Outlet, Link, useRoutes, useParams } from "react-router-dom";
+import Project from "./pages/Project";
 
 export default function Index() {
   let routes: RouteObject[] = [
@@ -31,7 +32,7 @@ export default function Index() {
           element: <Courses />,
           children: [
             { index: true, element: <CoursesIndex /> },
-            { path: "/courses/:id", element: <Course /> },
+            { path: "/courses/:id", element: <Project /> },
           ],
         },
         { path: "*", element: <NoMatch /> },
@@ -125,6 +126,9 @@ function CoursesIndex() {
           </li>
           <li>
             <Link to="react-router">React Router</Link>
+          </li>
+          <li>
+            <Link to="project/63d6b9d65c94d40ff7dee1bb">Project</Link>
           </li>
         </ul>
       </nav>

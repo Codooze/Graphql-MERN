@@ -7,17 +7,17 @@ import EditProjectForm from "../components/EditProjectForm";
 
 export default function Project() {
   const { id } = useParams<"id">();
-  // const { loading, error, data } = useQuery(GET_PROJECT, {
-  //   variables: { id },
-  // });
+  const { loading, error, data } = useQuery(GET_PROJECT, {
+    variables: { id },
+  });
 
-  // if (loading) return <p>Loading...</p>;
-  // if (error) return <p>Error :(</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
 
   return (
     <div>
       <p>HIHI</p>
-      {/* {!loading && !error && (
+      {!loading && !error && (
         <div className="mx-auto w-75 card p-5">
           <Link to="/" className="btn btn-light btn-sm w-25 d-inline ms-auto">
             Back
@@ -33,7 +33,7 @@ export default function Project() {
           <EditProjectForm project={data.project} />
           <DeleteProjectButton projectId={data.project.id} />
         </div>
-      )} */}
+      )}
     </div>
   );
 }
