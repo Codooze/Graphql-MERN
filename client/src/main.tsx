@@ -48,6 +48,14 @@ const router = createBrowserRouter([
     element: <Project />,
     errorElement: <NotFound />,
   },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+  {
+    path: "/uwu",
+    element: <h1>Hello world</h1>,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
