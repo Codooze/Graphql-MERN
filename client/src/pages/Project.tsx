@@ -16,7 +16,6 @@ export default function Project() {
 
   return (
     <div>
-      <p>HIHI</p>
       {!loading && !error && (
         <div className="mx-auto w-75 card p-5">
           <Link to="/" className="btn btn-light btn-sm w-25 d-inline ms-auto">
